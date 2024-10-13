@@ -1,0 +1,71 @@
+<h1 style="text-align: center;">Production</h1>
+
+<style>
+  /* Estilos generales para la tabla */
+  table {
+    width: 70%; /* Ancho de la tabla al 70% */
+    margin: 20px auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Para evitar bordes dobles */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+
+  /* Estilos para el encabezado de la tabla */
+  thead {
+    background-color: #2C3E50; /* Color de fondo más oscuro */
+    color: white; /* Color del texto */
+  }
+
+  /* Estilos para las celdas del encabezado */
+  th {
+    padding: 12px; /* Espaciado interno */
+    text-align: left; /* Alinear texto a la izquierda */
+  }
+
+  /* Estilos para las filas de la tabla */
+  tbody tr:nth-child(even) {
+    background-color: #ECF0F1; /* Color de fondo gris claro para filas pares */
+  }
+
+  tbody tr:hover {
+    background-color: #BDC3C7; /* Color de fondo al pasar el ratón */
+  }
+
+  /* Estilos para las celdas de la tabla */
+  td {
+    padding: 12px; /* Espaciado interno */
+    border: 1px solid #BDC3C7; /* Bordes de celdas con un color gris suave */
+    text-align: center; /* Centra el texto */
+  }
+
+  /* Estilo para el enlace */
+  a {
+    color: #2980B9; /* Color del enlace más sobrio */
+    text-decoration: none; /* Sin subrayado */
+  }
+
+  a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+  }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Piece Code</th>
+      <th>Dice</th>
+      <th>Strikes per piece</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pieces.each do |piece| %>
+      <tr>
+        <td><%= link_to piece.code, piece_path(piece.id) %></td>
+        <td><%= link_to piece.dice.code, dice_path(piece.dice.id) %></td>
+        <td><%= piece.strikes %></td>
+        <td><%= link_to 'Create production', new_piece_production_path(dice_id: piece.dice.id, piece_id: piece.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

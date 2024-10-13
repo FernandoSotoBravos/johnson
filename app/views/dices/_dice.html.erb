@@ -1,0 +1,22 @@
+<div id="<%= dom_id dice %>" style="border: 1px solid #BDC3C7; border-radius: 5px; margin-bottom: 20px; padding: 15px; background-color: #F9F9F9; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <p>
+    <strong>Code:</strong>
+    <span style="color: #2980B9;"><%= dice.code %></span>
+  </p>
+
+  <p>
+    <strong>Strikes counter:</strong>
+    <span style="color: #2980B9;"><%= PieceProduction.where(piece_id: Dice.first.piece.id).sum(&:number_of_pieces) * 2 %></span>
+  </p>
+
+  <p>
+    <strong>Max strikes:</strong>
+    <span style="color: #2980B9;"><%= dice.max_strikes %></span>
+  </p>
+
+  <% if PieceProduction.where(piece_id: Dice.first.piece.id).sum(&:number_of_pieces) * 2 >= dice.max_strikes %>
+    <p>
+      <span style="color: red;">*</span> The dice has reached its strike limit. Please replace it with a new one.
+    </p>
+  <% end %>
+</div>

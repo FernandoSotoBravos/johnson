@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dice %>
+
+<div>
+  <%= link_to "Edit this dice", edit_dice_path(@dice) %> |
+  <%= link_to "Back to dices", dices_path %>
+
+  <%= button_to "Destroy this dice", @dice, method: :delete %>
+</div>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Dices" %>
+
+<h1>Dices</h1>
+
+<div id="dices">
+  <% @dices.each do |dice| %>
+    <%= render dice %>
+    <p>
+      <%= link_to "Show this dice", dice %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New dice", new_dice_path %>

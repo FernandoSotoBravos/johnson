@@ -1,0 +1,33 @@
+<%= form_with(model: piece) do |form| %>
+  <% if piece.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(piece.errors.count, "error") %> prohibited this piece from being saved:</h2>
+
+      <ul>
+        <% piece.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :code, style: "display: block" %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div>
+    <%= form.label :strikes, style: "display: block" %>
+    <%= form.number_field :strikes %>
+  </div>
+
+  <!-- Campo para seleccionar el dado (dice) -->
+  <div>
+    <%= form.label :dice_id, "Select Dice", style: "display: block" %>
+    <%= form.collection_select :dice_id, Dice.all, :id, :code, prompt: "Choose a dice", selected: piece.dice_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

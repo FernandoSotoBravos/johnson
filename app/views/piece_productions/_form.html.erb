@@ -1,0 +1,35 @@
+<%= form_with(model: piece_production) do |form| %>
+  <% if piece_production.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(piece_production.errors.count, "error") %> prohibited this piece_production from being saved:</h2>
+
+      <ul>
+        <% piece_production.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :dice_id, value: piece_production.dice_id %>
+  <%= form.hidden_field :piece_id, value: piece_production.piece_id %>
+
+  <div>
+    <%= form.label :dice_code, "Dice Code", style: "display: block" %>
+    <%= form.text_field :dice_code, value: piece_production.dice&.code, readonly: true %>
+  </div>
+
+  <div>
+    <%= form.label :piece_code, "Piece Code", style: "display: block" %>
+    <%= form.text_field :piece_code, value: @piece&.code, readonly: true %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_pieces, style: "display: block" %>
+    <%= form.number_field :number_of_pieces %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<div id="<%= dom_id piece_production %>">
+  <p>
+    <strong>Dice:</strong>
+    <%= piece_production.dice_id %>
+  </p>
+
+  <p>
+    <strong>Number of pieces:</strong>
+    <%= piece_production.number_of_pieces %>
+  </p>
+
+
+  <p>
+    <strong>Dice total strikes:</strong>
+    <%= PieceProduction.where(piece_id: piece_production.piece_id).sum(&:number_of_pieces) * 2 %>
+  </p>
+
+</div>

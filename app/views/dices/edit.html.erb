@@ -1,0 +1,12 @@
+<% content_for :title, "Editing dice" %>
+
+<h1>Editing dice</h1>
+
+<%= render "form", dice: @dice %>
+
+<br>
+
+<div>
+  <%= link_to "Show this dice", @dice %> |
+  <%= link_to "Back to dices", dices_path %>
+</div>

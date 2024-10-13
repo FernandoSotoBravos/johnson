@@ -1,0 +1,16 @@
+<div id="<%= dom_id piece %>" style="border: 1px solid #BDC3C7; border-radius: 5px; margin-bottom: 20px; padding: 15px; background-color: #F9F9F9; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <p>
+    <strong>Code:</strong>
+    <span style="color: #2980B9;"><%= piece.code %></span>
+  </p>
+
+  <p>
+    <strong>Strikes:</strong>
+    <span style="color: #2980B9;"><%= piece.strikes %></span>
+  </p>
+
+  <p>
+    <strong>Dice Code:</strong>
+    <span style="color: #2980B9;"><%= Dice.find(piece.dice_id).code %></span>
+  </p>
+</div>
