@@ -34,3 +34,4 @@ EXPOSE 80
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["sh", "-c", "rails server -b 0.0.0.0 -p 3001 & nginx -g 'daemon off;'"]
+
