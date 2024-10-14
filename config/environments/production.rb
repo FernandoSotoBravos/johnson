@@ -34,7 +34,6 @@ Rails.application.configure do
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.serve_static_files = true
   config.assets.digest = true
 
   config.log_level = :info
